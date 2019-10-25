@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <title>Mirador</title>
+</head>
+
+<body>
+  <div id="mirador" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></div>
+  <script type="text/javascript" src="https://unpkg.com/mirador@alpha"></script>
+  <script type="text/javascript">
+
+let params = new URLSearchParams(document.location.search.substring(1));
+let manifest = params.get("manifest"); // is the string "Jonathan"
+
+    var miradorInstance = Mirador.viewer({
+      id: 'mirador',
+      windows: [{
+        loadedManifest: manifest,
+      }],
+      window: {
+        allowClose: false,
+        allowMaximize: true,
+        defaultSideBarPanel: 'info',
+        defaultView: 'gallery',
+        sideBarOpenByDefault: true,
+      },
+      thumbnailNavigation: {
+        defaultPosition: 'off',
+      },
+      workspace: {
+        type: 'mosaic', // Which workspace type to load by default. Other possible values are "elastic"
+      },
+      workspaceControlPanel: {
+        enabled: false,
+      },
+    });
+  </script>
+</body>
+
+</html>
