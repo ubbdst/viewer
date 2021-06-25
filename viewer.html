@@ -10,16 +10,17 @@
 
 <body>
   <div id="mirador" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></div>
-  <script type="text/javascript" src="https://unpkg.com/mirador@3.0.0-rc.5"></script>
+  <script type="text/javascript" src="https://unpkg.com/mirador@3.2.0"></script>
   <script type="text/javascript">
-
+ 
 let params = new URLSearchParams(document.location.search.substring(1));
 let manifest = params.get("manifest"); 
-
+let page = params.get("page") ?? 1;
     var miradorInstance = Mirador.viewer({
       id: 'mirador',
       windows: [{
         loadedManifest: manifest,
+      canvasIndex: page - 1,
       }],
       window: {
         allowClose: false,
