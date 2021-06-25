@@ -18,9 +18,9 @@ let manifest = params.get("manifest");
 let page = params.get("page") ?? 1;
     var miradorInstance = Mirador.viewer({
       id: 'mirador',
-      canvasIndex: page - 1,
       windows: [{
         loadedManifest: manifest,
+      canvasIndex: page - 1,
       }],
       window: {
         allowClose: false,
